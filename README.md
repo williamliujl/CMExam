@@ -26,7 +26,7 @@ CMExam is a dataset sourced from the Chinese National Medical Licensing Examinat
 
 Alongside the dataset, we further conducted thorough experiments with representative LLMs and QA algorithms on CMExam.
 
-<img src="https://github.com/williamliujl/CMExam/blob/main/docs/overall_comparison.png" width="860" />
+<img src="https://github.com/williamliujl/CMExam/blob/main/docs/overall_comparison.jpg" width="860" />
 
 ## Deployment
 
