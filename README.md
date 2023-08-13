@@ -22,7 +22,11 @@ CMExam is a dataset sourced from the Chinese National Medical Licensing Examinat
 | Median (Q1, Q3) E tokens   | 146 (69, 246) | 143 (65, 247) | 158 (80, 263) | 146 (69, 247) |
 
 
+## Benchmarks
 
+Alongside the dataset, we further conducted thorough experiments with representative LLMs and QA algorithms on CMExam.
+
+<img src="https://github.com/williamliujl/CMExam/blob/main/docs/overall_comparison.png" width="860" />
 
 ## Deployment
 
@@ -51,10 +55,9 @@ To deploy this project run
 
 - [ ] add statistics scripts of CMExam
 
-- [ ] add off-the-shelf LLMs evaluation prompts and scripts
-
 - [x] add LLMs finetuing prompts and scripts
 
+- [x] add evaluation scripts
 
 
 ## Citation
