@@ -21,6 +21,16 @@ CMExam is a dataset sourced from the Chinese National Medical Licensing Examinat
 | Median (Q1, Q3) A tokens   | 1 (1, 1)      | 1 (1, 1)      | 1 (1, 1)      | 1 (1, 1)      |
 | Median (Q1, Q3) E tokens   | 146 (69, 246) | 143 (65, 247) | 158 (80, 263) | 146 (69, 247) |
 
+\*Q: Question; A: Answer; E: Explanation
+
+## Annotation Characteristics
+|     Annotation Content     |          References         | Unique values |
+|----------------------------|-----------------------------|---------------|
+|       Disease Groups       | The 11th revision of ICD-11 |      27       |
+|   Clinical Departments     | The Directory of Medical Institution Diagnostic and Therapeutic Categories (DMIDTC) | 36 |
+|    Medical Disciplines     | List of Graduate Education Disciplinary Majors (2022) | 7 |
+|   Medical Competencies     |    Medical Professionals    |       4       |
+|      Difficulty Level      |       Human Performance     |       5       |
 
 ## Benchmarks
 
