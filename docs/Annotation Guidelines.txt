@@ -1,0 +1,9 @@
+1. Comprehensive Question Understanding: Prior to initiating the annotation process, meticulously comprehend the medical question, ensuring a holistic grasp of its context and significance.
+2. Subject Categorization: Identify the precise subject or medical field that the question pertains to, such as cardiology, pediatrics, or pathology.
+3. Principal Symptoms or Medical Conditions: Ascertain and pinpoint the primary symptoms or medical conditions expounded in the question.
+4. Examination of Pertinent Factors: Scrutinize the question for any associated factors that might be present, including the severity of the ailment, its etiology, and patient history given in the question.
+5. Appropriate Classification System Usage: Use the accurate classification system for annotation in alignment with the determined subject and symptoms. Suitable systems could encompass the 11th revision of the International Classification of Diseases (ICD-11), the Directory of Medical Institution Diagnostic and Therapeutic Categories (DMIDTC), and others.
+6. Addressing Multiple Annotations: In scenarios where the question encompasses multiple symptoms or medical conditions, opt for the most related classification for annotation.
+7. Ensuring High-Quality Annotations: Adhere to the guidelines and definitions within the chosen classification system. This diligence helps avert subjectivity and ambiguity, fostering precision in the annotations.
+8. Navigating Queries and Uncertainties: Should any doubts or uncertainties emerge during the annotation process, consult the official documents and glossaries of the chosen classification system. Engaging in discussions with professionals is also advised to achieve clarity.
+9. Resolving Discrepancies: When disagreements emerge between annotators, a collaborative discussion shall be initiated. The objective is to reach a consensus and unify the annotation decision.
