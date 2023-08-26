@@ -1,12 +1,8 @@
 import os
-os.environ['TRANSFORMERS_CACHE'] = '/data/private/peilin/cache'
-os.environ['HF_HOME'] = '/data/private/peilin/cache'
 import sys
 import json
 import fire
-import gradio as gr
 import torch
-import transformers
 import pandas as pd
 from peft import PeftModel
 from transformers import GenerationConfig, LlamaForCausalLM, LlamaTokenizer
@@ -49,8 +45,7 @@ class InferenceEngine:
                        **kwargs,
                        ):
         prompts = [self.prompter.generate_prompt(data["instruction"], input) for data in batch]
-        inputs = self.tokenizer(prompts, return_tensors="pt", padding=True, truncation=True)
-        input_ids = inputs["input_ids"].to(device)
+        inputs = self.tokenizer(prompts, return_tensors="pt", padding=True).to(device)
         generation_config = GenerationConfig(
             temperature=self.temperature,
             top_p=self.top_p,
@@ -60,16 +55,14 @@ class InferenceEngine:
         )
         with torch.no_grad():
             generation_output = self.model.generate(
-                input_ids=input_ids,
+                **inputs,
                 generation_config=generation_config,
-                return_dict_in_generate=True,
-                output_scores=True,
+                # return_dict_in_generate=True,
+                # output_scores=True,
                 max_new_tokens=self.max_new_tokens,
                 num_return_sequences=self.num_return_sequences,
             )
-        outputs = [self.tokenizer.decode(ids) for ids in generation_output.sequences]
-        # todo
-        print('input prompt:', prompts)
+        outputs = self.tokenizer.batch_decode(generation_output, skip_special_tokens=True)
         return [self.prompter.get_response(output) for output in outputs]
 
     def infer_from_csv(self, instruct_dir, output_dir, prompt_id):
@@ -98,25 +91,25 @@ class InferenceEngine:
 
     def run(self,
             load_8bit=False,
-            base_model="decapoda-research/llama-7b-hf",
+            base_model="medalpaca/medalpaca-7b",
             instruct_dir="../../data/test_prompt.csv",
-            prompt_id="1",
+            prompt_id="4",
             output_dir="output/",
             output_file_name="output.csv",
             use_lora=False,
             lora_weights="tloen/alpaca-lora-7b",
             prompt_template="med_template",
-            batch_size=1,
+            batch_size=4,
             temperature=0.1,
             top_p=0.75,
             top_k=40,
-            num_beams=1,
+            num_beams=4,
             max_new_tokens=32,
             num_return_sequences=1
             ):
         self.output_file_name = output_file_name
         self.prompter = Prompter(prompt_template)
-        self.tokenizer = LlamaTokenizer.from_pretrained(base_model)
+        self.tokenizer = LlamaTokenizer.from_pretrained(base_model, padding_side="left")
         self.model = LlamaForCausalLM.from_pretrained(
             base_model,
             load_in_8bit=load_8bit,
@@ -140,8 +133,8 @@ class InferenceEngine:
             )
         # unwind broken decapoda-research config
         self.model.config.pad_token_id = self.tokenizer.pad_token_id = 0  # unk
-        self.model.config.bos_token_id = 1
-        self.model.config.eos_token_id = 2
+        self.model.config.bos_token_id = self.tokenizer.bos_token_id
+        self.model.config.eos_token_id = self.tokenizer.eos_token_id
         if not load_8bit:
             self.model.half()  # seems to fix bugs for some users.
 
