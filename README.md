@@ -60,6 +60,19 @@ To deploy this project run
   bash prediction.sh
 ```
 
+### LoRA
+```
+  cd ../LoRA
+  bash ./scripts/finetune.sh
+  bash ./scripts/infer_ori.sh
+  bash ./scripts/infer_sft.sh
+```
+
+### Evaluation
+```
+  cd ../evaluation
+  python evaluate_lora_results.py --csv_file_path path/to/csv/file
+```
 
 ## To-Do
 
