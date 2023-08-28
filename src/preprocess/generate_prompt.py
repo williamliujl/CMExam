@@ -17,8 +17,6 @@ from prompt_templates import all_task_templates
 def main(args):
 
     filepath = args.filepath
-    savepath = filepath.replace(".csv", ".json")
-
 
     csv = pd.read_csv(filepath)
 
@@ -72,6 +70,7 @@ def main(args):
                 print(data)
 
     # save json
+    savepath = filepath.replace(".csv", ".json")
     with open(savepath, 'w') as f:
         for prompt in prompts:
             json_file = {
@@ -83,6 +82,12 @@ def main(args):
             f.write(json_str + '\n')
         f.close()
 
+    # save csv
+    savepath = filepath.replace(".csv", "_prompt.json")
+    csv["prompt"] = [prompt["prompt"] for prompt in prompts]
+    csv["completion"] = [prompt["completion"] for prompt in prompts]
+    csv["id"] = [prompt["id"] for prompt in prompts]
+    csv.to_csv(savepath)
 
 if __name__ == "__main__":
     parser = argparse.ArgumentParser()

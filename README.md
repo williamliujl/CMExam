@@ -76,7 +76,7 @@ To deploy this project run
 
 ## To-Do
 
-- [ ] add statistics scripts of CMExam
+- [x] add statistics scripts of CMExam
 
 - [x] add LLMs finetuing prompts and scripts
 
