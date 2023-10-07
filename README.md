@@ -1,4 +1,4 @@
-# CMExam
+# Benchmarking Large Language Models on CMExam - A Comprehensive Chinese Medical Exam Dataset 
 
 ## Introduction
 
