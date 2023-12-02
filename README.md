@@ -1,5 +1,7 @@
 Note: If you are looking for a multimodal dataset, check out our new dataset, **ChiMed-VL-Instruction**, with 469,441 vision-language QA pairs: [https://paperswithcode.com/dataset/qilin-med-vl](https://paperswithcode.com/dataset/qilin-med-vl))
 
+This paper was presented at NeurIPS 2023, New Orleans, Louisana. See here for the [poster](conference_material/poster.pdf) and [slides](conference_material/presentation.pptx).
+
 # Benchmarking Large Language Models on CMExam - A Comprehensive Chinese Medical Exam Dataset 
 
 ## Introduction
