@@ -1,3 +1,5 @@
+Note: If you are looking for a multimodal dataset, check out our new dataset, **ChiMed-VL-Instruction**, with 469,441 vision-language QA pairs: [https://paperswithcode.com/dataset/qilin-med-vl](https://paperswithcode.com/dataset/qilin-med-vl))
+
 # Benchmarking Large Language Models on CMExam - A Comprehensive Chinese Medical Exam Dataset 
 
 ## Introduction
@@ -74,14 +76,19 @@ To deploy this project run
   python evaluate_lora_results.py --csv_file_path path/to/csv/file
 ```
 
-## To-Do
-
-- [x] add statistics scripts of CMExam
-
-- [x] add LLMs finetuing prompts and scripts
-
-- [x] add evaluation scripts
-
+## Side notes
+### Limitations:
+- Excluding non-textual questions may introduce biases.
+- BLEU and ROUGE metrics are inadequate for fully assessing explanations; better expert analysis needed in future.
+### Ethics in Data Collection:
+- Adheres to legal and ethical guidelines.
+- Authenticated and accurate for evaluating LLMs.
+- Intended for academic/research use only; commercial misuse prohibited.
+- Users should acknowledge dataset limitations and specific context.
+- Not for assessing individual medical competence or patient diagnosis.
+### Future directions:
+- Translate to English (in-progress)
+- Include multimodal information (our new dataset ChiMed-Vision-Language-Instruction - 469,441 QA pairs: [https://paperswithcode.com/dataset/qilin-med-vl](https://paperswithcode.com/dataset/qilin-med-vl))
 
 ## Citation
 Benchmarking Large Language Models on CMExam -- A Comprehensive Chinese Medical Exam Dataset
