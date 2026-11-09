@@ -18,7 +18,7 @@ class InferenceEngine:
 
     def load_instruction(self, instruct_dir):
         input_data = []
-        with open(instruct_dir, "r") as f:
+        with open(instruct_dir, "r", encoding="utf-8") as f:
             lines = f.readlines()
             for line in lines:
                 line = line.strip()
